@@ -40,4 +40,6 @@ class DefaultVariant : Variant, Serializable {
   override val runTestInSeparateProcess: Boolean = false
   override val deviceTestArtifacts: Map<String, AndroidArtifact> = emptyMap()
   override val hostTestArtifacts: Map<String, JavaArtifact> = emptyMap()
+  override var experimentalProperties: Map<String, String> = emptyMap()
+
 }
