@@ -101,7 +101,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: release-mappings
-          path: '**/build/outputs/mapping'
+          path: "test/build/outputs/mapping"
 
   run_unit_tests:
     name: Run unit tests
@@ -137,7 +137,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: test-results-unit-tests
-          path: '**/build/reports/tests/'
+          path: "test/build/reports/tests"
 
   run_tooling_api_tests:
     name: Build and test Tooling API
@@ -174,7 +174,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: test-results-tooling-api-tests
-          path: '**/build/reports/tests/'
+          path: "test/build/reports/tests/"
 
   run_connected_checks:
     name: Run connected checks
@@ -227,7 +227,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: test-results-android-tests-${{ matrix.api-level }}-${{ matrix.target }}
-          path: '**/build/reports/androidTests/'
+          path: "test/build/reports/androidTests"
 
   publish:
     name: Publish release
