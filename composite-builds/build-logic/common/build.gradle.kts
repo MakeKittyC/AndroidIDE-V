@@ -23,8 +23,14 @@ plugins {
   id("org.jetbrains.kotlin.jvm")
 }
 
-tasks.withType<KotlinCompile> {
-  kotlinOptions.jvmTarget = "17"
+tasks
+  .withType<org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile>()
+    .configureEach {
+        compilerOptions
+            .jvmTarget
+            .set(
+                org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21
+            )
 }
 
 dependencies {

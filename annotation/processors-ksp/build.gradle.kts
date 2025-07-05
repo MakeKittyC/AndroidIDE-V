@@ -43,6 +43,12 @@ sourceSets.main {
   java.srcDirs("src/main/kotlin")
 }
 
-tasks.withType<KotlinCompile> {
-  kotlinOptions.jvmTarget = "17"
+tasks
+  .withType<org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile>()
+    .configureEach {
+        compilerOptions
+            .jvmTarget
+            .set(
+                org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21
+            )
 }

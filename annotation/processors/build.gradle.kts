@@ -45,6 +45,12 @@ dependencies {
   annotationProcessor("net.ltgt.gradle.incap:incap-processor:$incap")
 }
 
-tasks.withType<KotlinCompile> {
-  kotlinOptions.jvmTarget = "17"
-}
+tasks
+    .withType<org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile>()
+    .configureEach {
+        compilerOptions
+            .jvmTarget
+            .set(
+                org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21
+            )
+    }
