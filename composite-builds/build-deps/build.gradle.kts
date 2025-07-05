@@ -27,7 +27,7 @@ plugins {
 subprojects {
   plugins.withId("com.android.library") {
     extensions.getByType(BaseExtension::class.java).apply {
-      compileSdkVersion(35)
+      compileSdkVersion(34)
 
       defaultConfig {
         minSdk = 26
@@ -36,8 +36,8 @@ subprojects {
       }
 
       compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
       }
 
       buildTypes.register("dev") {
@@ -47,13 +47,7 @@ subprojects {
     }
   }
 
-tasks
-  .withType<org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile>()
-    .configureEach {
-        compilerOptions
-            .jvmTarget
-            .set(
-                org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21
-            )
-    }
+  tasks.withType(KotlinCompile::class.java) {
+    kotlinOptions.jvmTarget = "11"
+  }
 }
